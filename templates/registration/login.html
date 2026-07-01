@@ -1,0 +1,39 @@
+{% load static %}
+
+<link
+rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+<div class="card">
+
+<h1>
+
+🔑 Вхід
+
+</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button>
+
+Увійти
+
+</button>
+
+</form>
+
+<br>
+
+<a
+href="/register/"
+class="forecast-btn">
+
+📝 Створити акаунт
+
+</a>
+
+</div>

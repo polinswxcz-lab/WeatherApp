@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+Прогноз
+
+</title>
+
+<link
+rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<div class="forecast-page">
+
+<h1 class="forecast-title">
+
+📅 Прогноз на 5 днів
+
+<br>
+
+{{ data.city }}
+{{ data.country }}
+
+</h1>
+
+{% if error %}
+
+<p>
+
+{{ error }}
+
+</p>
+
+{% endif %}
+
+{% if data %}
+
+<div class="forecast-grid">
+
+{% for day in data.forecast %}
+
+<div class="day">
+
+<h3>
+
+{{ day.date }}
+
+</h3>
+
+<img
+src="https://openweathermap.org/img/wn/{{ day.icon }}@2x.png"
+>
+
+<h2>
+
+{{ day.temp }}°C
+
+</h2>
+
+<p>
+
+{{ day.description }}
+
+</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+<a
+href="/"
+class="back">
+
+← Назад
+
+</a>
+
+</div>
+
+</body>
+
+</html>

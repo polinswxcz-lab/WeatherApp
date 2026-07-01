@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+
+Реєстрація
+
+</title>
+
+<link
+rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>
+
+📝 Реєстрація
+
+</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="field">
+
+<label>
+
+Логін
+
+</label>
+
+{{ form.username }}
+
+</div>
+
+<div class="field">
+
+<label>
+
+Пароль
+
+</label>
+
+{{ form.password1 }}
+
+</div>
+
+<div class="field">
+
+<label>
+
+Підтвердження
+
+</label>
+
+{{ form.password2 }}
+
+</div>
+
+<button type="submit">
+
+Створити акаунт
+
+</button>
+
+</form>
+
+<br>
+
+<a
+href="/login/"
+class="forecast-btn">
+
+🔑 Уже є акаунт
+
+</a>
+
+</div>
+
+</body>
+
+</html>

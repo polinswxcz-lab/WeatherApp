@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link
+rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>
+
+⭐ Улюблені міста
+
+</h1>
+
+{% for city in cities %}
+
+<div class="city">
+
+<h3>
+
+{{ city.city_name }}
+
+{{ city.country_code }}
+
+</h3>
+
+<a
+href="/favorites/remove/{{ city.id }}/"
+class="remove">
+
+🗑 Видалити
+
+</a>
+
+</div>
+
+{% empty %}
+
+<p>
+
+Список порожній
+
+</p>
+
+{% endfor %}
+
+<br>
+
+<a
+href="/"
+class="forecast-btn">
+
+← Назад
+
+</a>
+
+</div>
+
+</body>
+
+</html>
