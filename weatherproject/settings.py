@@ -15,7 +15,7 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=True, cast=bool)
 
 ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS",
+    ALLOWED_HOSTS = ["*"],
     default="127.0.0.1,localhost",
     cast=lambda v: [s.strip() for s in v.split(",")]
 )
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
